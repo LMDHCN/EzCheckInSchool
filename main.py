@@ -4,13 +4,6 @@ import requests
 import random
 import datetime
 
-# sectets字段录入
-deptId = eval(input())
-deptText = input()
-areaStr = input()
-stuNo = input()
-username = input()
-userid = input()
 sckey = input()
 
 # 时间判断
@@ -28,43 +21,9 @@ else:
     print("现在是%d点%d分，打卡时间将自动打卡" %(now,time.localtime().tm_min))
     exit(0)
 
-# 随机温度(36.2~36.8)
-a = random.uniform(36.2, 36.4)
-temperature = round(a, 1)
-
 sign_url = "https://reportedh5.17wanxiao.com/sass/api/epmpics"
 
-jsons = {
-    "businessType": "epmpics",
-    "method": "submitUpInfoSchool",
-    "jsonData": {
-        "deptStr": {
-            "deptid": deptId,
-            "text": deptText
-        },
-        "areaStr": areaStr,
-        "reportdate": round(time.time() * 1000),
-        "customerid": 43,
-        "deptid": deptId,
-        "source": "app",
-        "templateid": templateid,
-        "stuNo": stuNo,
-        "username": username,
-        "userid": userid,
-        "updatainfo": [
-            {
-                "propertyname": "temperature",
-                "value": temperature
-            },
-            {
-                "propertyname": "symptom",
-                "value": "无症状"
-            }
-        ],
-        "customerAppTypeRuleId": customerAppTypeRuleId,
-        "clockState": 0
-    },
-}
+jsons = {"businessType":"epmpics","method":"submitUpInfoSchool","jsonData":{"deptStr":{"deptid":226923,"text":"信息工程学院-计算机系-计20-1"},"areaStr":"{\"streetNumber\":\"\",\"street\":\"\",\"district\":\"土默特左旗\",\"city\":\"呼和浩特市\",\"province\":\"内蒙古自治区\",\"town\":\"\",\"pois\":\"北苑公寓\",\"lng\":111.56171499999668,\"lat\":40.80133098122903,\"address\":\"土默特左旗北苑公寓\",\"text\":\"内蒙古自治区-呼和浩特市\",\"code\":\"\"}","reportdate":1601302136827,"customerid":533,"deptid":226923,"source":"app","templateid":"clockSign2","stuNo":"202010201028","username":"高沛暄","userid":24660130,"updatainfo":[{"propertyname":"temperature","value":"36.3"},{"propertyname":"symptom","value":"无症状"}],"customerAppTypeRuleId":358,"clockState":0},"token":"90003e35-9bbc-4bd1-8eca-eb8a5e950677"},
 # 提交打卡
 response = requests.post(sign_url, json=jsons)
 utcTime = (datetime.datetime.utcnow() + datetime.timedelta(hours=8))
