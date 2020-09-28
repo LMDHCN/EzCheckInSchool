@@ -23,7 +23,7 @@ else:
 
 sign_url = "https://reportedh5.17wanxiao.com/sass/api/epmpics"
 
-jsons = {"businessType":"epmpics","method":"submitUpInfoSchool","jsonData":{"deptStr":{"deptid":226923,"text":"信息工程学院-计算机系-计20-1"},"areaStr":"{\"streetNumber\":\"\",\"street\":\"\",\"district\":\"土默特左旗\",\"city\":\"呼和浩特市\",\"province\":\"内蒙古自治区\",\"town\":\"\",\"pois\":\"北苑公寓\",\"lng\":111.56171499999668,\"lat\":40.80133098122903,\"address\":\"土默特左旗北苑公寓\",\"text\":\"内蒙古自治区-呼和浩特市\",\"code\":\"\"}","reportdate":1601302136827,"customerid":533,"deptid":226923,"source":"app","templateid":"clockSign2","stuNo":"202010201028","username":"高沛暄","userid":24660130,"updatainfo":[{"propertyname":"temperature","value":"36.3"},{"propertyname":"symptom","value":"无症状"}],"customerAppTypeRuleId":358,"clockState":0},"token":"90003e35-9bbc-4bd1-8eca-eb8a5e950677"},
+jsons = {"businessType":"epmpics","method":"submitUpInfoSchool","jsonData":{"deptStr":{"deptid":226923,"text":"信息工程学院-计算机系-计20-1"},"areaStr":"{\"streetNumber\":\"\",\"street\":\"\",\"district\":\"土默特左旗\",\"city\":\"呼和浩特市\",\"province\":\"内蒙古自治区\",\"town\":\"\",\"pois\":\"北苑公寓\",\"lng\":111.56171499999668,\"lat\":40.80133098122903,\"address\":\"土默特左旗北苑公寓\",\"text\":\"内蒙古自治区-呼和浩特市\",\"code\":\"\"}","reportdate":1601302136827,"customerid":533,"deptid":226923,"source":"app","templateid":"clockSign2","stuNo":"202010201028","username":"高沛暄","userid":24660130,"updatainfo":[{"propertyname":"temperature","value":"36.3"},{"propertyname":"symptom","value":"无症状"}],"customerAppTypeRuleId":customerAppTyperRuleId,"clockState":0},"token":"90003e35-9bbc-4bd1-8eca-eb8a5e950677"},
 # 提交打卡
 response = requests.post(sign_url, json=jsons)
 utcTime = (datetime.datetime.utcnow() + datetime.timedelta(hours=8))
